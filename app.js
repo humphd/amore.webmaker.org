@@ -26,10 +26,14 @@ app.use( express.logger());
 app.use( express.compress());
 // Setup locales with i18n
 app.use( i18n.abide({
-  supported_languages: [ "en-US" ],
-  default_lang: "en-US",
+  supported_languages: [ "en", "ar" ],
+  default_lang: "ar",
   translation_directory: "static/i18n"
 }));
+app.use( function( req, res, next ) {
+  console.log(req.lang, req.lang_dir);
+  next();
+});
 app.use( express.static( path.join( __dirname + "/public" )));
 // bodyParser will parse "application/json", "application/x-www-form-urlencoded" and "multipart/form-data"
 // requests and put the results on req.body and req.files. Handy!
