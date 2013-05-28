@@ -1,0 +1,2 @@
+msgid "I love you"
+msgstr "I love you"
