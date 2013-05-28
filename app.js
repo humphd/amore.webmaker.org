@@ -25,9 +25,25 @@ app.use( express.logger());
 // Always put the compression middleware high up in the chain
 app.use( express.compress());
 // Setup locales with i18n
+app.use( function( req, res, next ) {
+  // Look for /en/ or /en-US/ or /en_US/ on the URL
+  var matches = req.url.match( /\/([a-zA-Z]{2}([-_][a-zA-Z]{2})?)\// );
+
+  // Swap out the accept-language so that abide respects what the user
+  // used on the URL, and strip the extra locale info from the URL so our
+  // routes below still work.
+  if ( matches ) {
+    req.url = req.url.replace( matches[ 0 ], "" );
+    // Normalize use of dash to underscore for abide
+    req.headers[ "accept-language" ] = matches[ 1 ].replace( "-", "_" );
+  }
+
+  console.log( req.headers[ "accept-language" ] );
+  next();
+});
 app.use( i18n.abide({
-  supported_languages: [ "en", "ar" ],
-  default_lang: "ar",
+  supported_languages: [ "db_LB", "de", "en_US", "es" ],
+  default_lang: "db-LB",
   translation_directory: "static/i18n"
 }));
 app.use( function( req, res, next ) {

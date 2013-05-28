@@ -1,2 +1,9 @@
-msgid "I love you"
+#
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ./views/index.html
+msgid "iloveyou"
 msgstr "I love you"

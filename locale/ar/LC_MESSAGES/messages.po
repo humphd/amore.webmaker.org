@@ -1,2 +1,0 @@
-msgid "I love you"
-msgstr "Bloop"
