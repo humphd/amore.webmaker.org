@@ -1,0 +1,26 @@
+{
+  "name": "amore.webmaker.org",
+  "version": "0.0.1",
+  "author": "David Humphrey <david.humphrey@senecacollege.ca>",
+  "description": "Node Web App for localization of Webmaker",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/humphd/amore.webmaker.org"
+  },
+  "scripts": {
+    "test": "grunt && node ./node_modules/mocha/bin/mocha --reporter spec --slow 1000 --timeout 5000"
+  },
+  "dependencies": {
+    "express": "~3.2.0"
+    "i18n-abide": "0.0.8beta6"
+  }
+  "devDependencies": {
+    "mocha": "~1.8.2",
+    "grunt": "0.4.1",
+    "grunt-contrib-jshint": "0.4.3"
+  },
+  "license": {
+    "type": "Apache",
+    "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+  }
+}
