@@ -14,15 +14,15 @@ $ node app.js
 
 Now you can see server-side localization in node.js by going to:
 
-* http://localhost:3000/
-* http://localhost:3000/en-US/
-* http://localhost:3000/de/
-* http://localhost:3000/es/
-* http://localhost:3000/db_LB/
+* [http://localhost:3000/](http://localhost:3000/)
+* [http://localhost:3000/en-US/](http://localhost:3000/en-US/)
+* [http://localhost:3000/de/](http://localhost:3000/de/)
+* [http://localhost:3000/es/](http://localhost:3000/es/)
+* [http://localhost:3000/db_LB/](http://localhost:3000/db_LB/)
 
 You can also try a mix of client-side and server-side using Require.js and the text plugin:
 
-* http://localhost:3000/static/require-example.html
+* [http://localhost:3000/static/require-example.html](http://localhost:3000/static/require-example.html)
 
 ##Discussion
 
