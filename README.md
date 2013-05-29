@@ -3,8 +3,7 @@ amore.webmaker.org
 
 A simple example app for Webmaker localization (l10n).
 
-Discussion
-==========
+##Discussion
 
 Localizing strings in Webmaker is a P1 goal for summer 2013. Our community has long called for the
 ability to localize our tools, sites, and content. Some initial experiments have been done already, but
@@ -19,8 +18,7 @@ The Mozilla Identity team has done some good work on a node.js localization solu
 Their code works by examining the request headers for `accept-language`.  They also use a somewhat complicated .PO->.json
 build step, in order to support historical l10n ways of working.
 
-Proposal
-========
+##Proposal
 
 Localizing Webmaker is a multi-step process and includes:
 
@@ -33,8 +31,7 @@ and build dom fragments that we dynamically add to the page
 * Setup and use [Transifex](https://www.transifex.com/) for all of Webmaker
 * Create necessary tooling/processes for getting localized files back into our repos
 
-Transifex
-=========
+##Transifex
 
 Transifex is what Github is to git, that is, an online platform offering tooling and community for localizers and
 projects wanting localization.  It is free for open source projects, and has been used with success already in
@@ -47,8 +44,7 @@ but could mean one or more files per repository.
 Transifex has "string memory" so that a string `foo` in one resource would be automatically translated in another--
 splitting our strings across many files/resources wouldn't add more work for our localizers.
 
-Property Lists (plist)
-======================
+###Property Lists (plist)
 
 Transifex supports many [file formats](http://help.transifex.com/features/formats.html), among them .po, .ini, .xml, etc.
 Webmaker has no historical localization community, tooling, or data, so deciding how we want to do this is wide open.
@@ -76,8 +72,7 @@ avoid the need for format build steps to alter it from one thing to another: let
 We've asked Transifex for advice on whether plist is going to be an issue down the road, and are waiting to hear back.
 Since node.js can consume .plist directly, translating our strings to .json or some other format later is also possible.
 
-locale/* files
-==============
+##locale/* files
 
 The .plist files from Transifex are named using the pattern `<lang>.plist`, for example: `de.plist` or `en_US.plist`.
 When the node app starts, it begins by reading all the locale files specified in the i18n middleware setup.  One
@@ -89,8 +84,7 @@ accpet-language.  For example:
 * localhost:3000/ --> will use `accept-language` header
 * localhost:3000/de/ --> will use the de locale and ignore `accept-language`
 
-Templates
-=========
+##Templates
 
 Strings in the locale files are used via templates.  The i18n module adds 3 things to the global scope which 
 templated JS can use, specifically:
@@ -106,8 +100,7 @@ Here the `lang` will be the locale's language, for example `en` or `en_US`.  The
 the direction of the language (`rtl` or `ltr`).  Finally, the `gettext` function allows a string to be retrieved
 from the locale using an ID.  The ID used should match one in the `<key>...</key>` portion of the .plist file.
 
-Using Strings in Require.js
-===========================
+##Using Strings in Require.js
 
 Require.js has its own strategy for localization.  The proposal is to not use it, and keep all strings out of JS
 CSS, partly so they compress better, partly so they can be cached better, and partly so that we don't have to
