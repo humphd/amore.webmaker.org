@@ -45,7 +45,7 @@ Localizing Webmaker is a multi-step process and includes:
 
 * Create webmaker-i18n based on i18n-abide, but without the use of .po files, and with other tweaks we need
 * Move all existing strings into templated HTML using [nunjucks](http://nunjucks.jlongster.com/)
-* Rewove all string manipulation code from JS, and use elements instead.  Elements will contain the proper
+* Remove all string manipulation code from JS, and use elements instead.  Elements will contain the proper
 strings already, since we'll load them from templates directly or with [require.js' text plugin](https://github.com/requirejs/text)
 and build dom fragments that we dynamically add to the page
 * Create an en-US localization for all of our strings
