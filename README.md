@@ -3,6 +3,27 @@ amore.webmaker.org
 
 A simple example app for Webmaker localization (l10n).
 
+##Instructions
+
+In order to see this web app working, do the following:
+
+```
+$ npm install
+$ node app.js
+```
+
+Now you can see server-side localization in node.js by going to:
+
+* http://localhost:3000/
+* http://localhost:3000/en-US/
+* http://localhost:3000/de/
+* http://localhost:3000/es/
+* http://localhost:3000/db_LB/
+
+You can also try a mix of client-side and server-side using Require.js and the text plugin:
+
+* http://localhost:3000/static/require-example.html
+
 ##Discussion
 
 Localizing strings in Webmaker is a P1 goal for summer 2013. Our community has long called for the
