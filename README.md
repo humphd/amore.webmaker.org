@@ -24,6 +24,12 @@ You can also try a mix of client-side and server-side using Require.js and the t
 
 * [http://localhost:3000/static/require-example.html](http://localhost:3000/static/require-example.html)
 
+Finally, you can look at an example that gets the entire string catalog for the current locale on the client-side,
+which could then be used to do more complex client-side string work without a pre-built DOM--see
+`static/strings-example.html`:
+
+* [http://localhost:3000/static/strings-example.html](http://localhost:3000/static/strings-example.html)
+
 ##Discussion
 
 Localizing strings in Webmaker is a P1 goal for summer 2013. Our community has long called for the
