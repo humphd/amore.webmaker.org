@@ -5,7 +5,7 @@ var express = require( "express" ),
     i18n = require( "./lib/i18n.js" ),
     app = express(),
     nunjucksEnv = new nunjucks.Environment( new nunjucks.FileSystemLoader( path.join( __dirname, '/views' ))),
-    routes = require( "./routes" );
+    routes = require( "./routes" )( i18n );
 
 // Enable template rendering with nunjucks
 nunjucksEnv.express( app );
@@ -28,6 +28,7 @@ app.use( "/static", express.static( path.join( __dirname + "/static" )));
 
 app.get( "/", routes.index );
 app.get( "/data", routes.data );
+app.get( "/strings", routes.strings );
 
 // Start up the server
 app.listen( 3000, function() {
