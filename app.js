@@ -29,7 +29,7 @@ app.use( i18n.abide({
   supported_languages: [ "db_LB", "de", "en_US", "es" ],
   default_lang: "en_US",
   translation_directory: "locale",
-  localeOnUrl: true
+  localeOnUrl: false
 }));
 app.use( function( req, res, next ) {
   console.log(req.lang, req.lang_dir);
@@ -47,6 +47,7 @@ app.use( middleware.errorHandler );
 
 // Express routes
 app.get( "/", routes.index );
+app.get( "/data", routes.data );
 
 // Start up the server
 app.listen( env.get( "PORT", 3000 ), function() {
