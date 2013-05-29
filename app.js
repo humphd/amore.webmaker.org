@@ -29,13 +29,13 @@ app.use( i18n.abide({
   supported_languages: [ "db_LB", "de", "en_US", "es" ],
   default_lang: "en_US",
   translation_directory: "locale",
-  localeOnUrl: false
+  localeOnUrl: true
 }));
 app.use( function( req, res, next ) {
-  console.log(req.lang, req.lang_dir);
+  console.log( "Using locale: %s", req.lang);
   next();
 });
-app.use( express.static( path.join( __dirname + "/public" )));
+app.use( "/static", express.static( path.join( __dirname + "/static" )));
 // bodyParser will parse "application/json", "application/x-www-form-urlencoded" and "multipart/form-data"
 // requests and put the results on req.body and req.files. Handy!
 // If you don't need to handle all three types then just use json(), urlencoded() or multipart() instead.
