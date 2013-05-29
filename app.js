@@ -3,7 +3,7 @@ var express = require( "express" ),
     habitat = require( "habitat" ),
     nunjucks = require( "nunjucks" ),
     path = require( "path" ),
-    i18n = require( "i18n-abide" );
+    i18n = require( "./lib/i18n.js" );
 
 // Load config from ".env"
 habitat.load();
@@ -44,7 +44,7 @@ app.use( function( req, res, next ) {
 app.use( i18n.abide({
   supported_languages: [ "db_LB", "de", "en_US", "es" ],
   default_lang: "db-LB",
-  translation_directory: "static/i18n"
+  translation_directory: "locale"
 }));
 app.use( function( req, res, next ) {
   console.log(req.lang, req.lang_dir);
