@@ -52,6 +52,35 @@ and build dom fragments that we dynamically add to the page
 * Setup and use [Transifex](https://www.transifex.com/) for all of Webmaker
 * Create necessary tooling/processes for getting localized files back into our repos
 
+##No Strings in Script
+
+Currently we have lots of code that updates strings in the DOM, and moving forward, we'll have to remove it.
+Consider this example from Popcorn Maker (`public/src/ui/header.js`):
+
+```javascript
+login: function() {
+  var isSaved = butter.project.isSaved;
+  _projectTitle.style.display = "";
+  _saveButton.innerHTML = "Save";
+
+  togglePreviewButton( isSaved );
+  toggleSaveButton( !isSaved );
+  toggleProjectButton( isSaved );
+},
+logout: function() {
+  togglePreviewButton( false );
+  toggleSaveButton( true );
+  toggleProjectButton( false );
+  _projectTitle.style.display = "none";
+  _saveButton.innerHTML = "Sign in to save";
+},
+```
+
+Here the string `Sign in to save` is replaced with `Save` when the user logs in.  Instead of touching the strings
+directly, the right way to do this would be to use two DOM elements, each with localized strings, and swap them
+as needed in code.  Doing this requires the use of dynamic templates and client-side injection of generated
+html, which is discussed below.
+
 ##Transifex
 
 Transifex is what Github is to git, that is, an online platform offering tooling and community for localizers and
