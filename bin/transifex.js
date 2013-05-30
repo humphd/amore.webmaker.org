@@ -1,7 +1,7 @@
 const BASE_URL = 'https://www.transifex.com/api/2/project/';
 const DEFAULT_DIR = 'locale';
 const DEFAULT_PROJECT = 'amore';
-            
+
 var fs = require('fs'),
   mkpath = require('mkpath'),
   path = require('path'),
@@ -50,7 +50,10 @@ function importFromTransifex(options) {
         if (error) {
           return console.log("Can not return the fileContent");
         }
-        writeFile(path.join(entry, resources.resources[0].slug + '.plist'), fileContent);
+        var filename = entry + '.plist';
+        writeFile(filename, fileContent, function( err ) {
+          console.log( ( err ? "Error writing " : "Wrote " ) + filename );
+        });
       });
     });
   });
@@ -72,6 +75,6 @@ function main() {
   importFromTransifex(program);
 }
 
-if (!module.parent) { 
+if (!module.parent) {
   main();
 }
