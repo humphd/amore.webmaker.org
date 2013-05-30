@@ -2,10 +2,10 @@ const BASE_URL = 'https://www.transifex.com/api/2/project/';
 const DEFAULT_DIR = 'locale';
 const DEFAULT_PROJECT = 'amore';
             
-var request = require('request'),
-  fs = require('fs'),
+var fs = require('fs'),
+  mkpath = require('mkpath'),
   path = require('path'),
-  mkpath = require('mkpath');
+  request = require('request');
 
 function importFromTransifex(options) {
   var authHeader = 'Basic ' + new Buffer(options.user).toString('base64');
@@ -17,12 +17,7 @@ function importFromTransifex(options) {
       if ( err ) {
         return callback( err );
       }
-      fs.writeFile(absPath, exports, { encoding: "utf-8" }, function( err ) {
-        if ( err ) {
-          return callback( err );
-        }
-        callback();
-      });
+      fs.writeFile(absPath, exports, { encoding: "utf-8" }, callback);
     });
   }
 
