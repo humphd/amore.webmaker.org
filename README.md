@@ -24,6 +24,12 @@ You can also try a mix of client-side and server-side using Require.js and the t
 
 * [http://localhost:3000/static/require-example.html](http://localhost:3000/static/require-example.html)
 
+Finally, you can look at an example that gets the entire string catalog for the current locale on the client-side,
+which could then be used to do more complex client-side string work without a pre-built DOM--see
+`static/strings-example.html`:
+
+* [http://localhost:3000/static/strings-example.html](http://localhost:3000/static/strings-example.html)
+
 ##Discussion
 
 Localizing strings in Webmaker is a P1 goal for summer 2013. Our community has long called for the
@@ -45,7 +51,7 @@ Localizing Webmaker is a multi-step process and includes:
 
 * Create webmaker-i18n based on i18n-abide, but without the use of .po files, and with other tweaks we need
 * Move all existing strings into templated HTML using [nunjucks](http://nunjucks.jlongster.com/)
-* Rewove all string manipulation code from JS, and use elements instead.  Elements will contain the proper
+* Remove all string manipulation code from JS, and use elements instead.  Elements will contain the proper
 strings already, since we'll load them from templates directly or with [require.js' text plugin](https://github.com/requirejs/text)
 and build dom fragments that we dynamically add to the page
 * Create an en-US localization for all of our strings
