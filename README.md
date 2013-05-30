@@ -28,7 +28,9 @@ Finally, you can look at an example that gets the entire string catalog for the 
 which could then be used to do more complex client-side string work without a pre-built DOM--see
 `static/strings-example.html`:
 
-* [http://localhost:3000/static/strings-example.html](http://localhost:3000/static/strings-example.html)
+* [http://localhost:3000/localized](http://localhost:3000/localized)
+* [http://localhost:3000/de/localized](http://localhost:3000/de/localized)
+* [http://localhost:3000/es/localized](http://localhost:3000/es/localized)
 
 ##Discussion
 
@@ -86,6 +88,19 @@ Here the string `Sign in to save` is replaced with `Save` when the user logs in.
 directly, the right way to do this would be to use two DOM elements, each with localized strings, and swap them
 as needed in code.  Doing this requires the use of dynamic templates and client-side injection of generated
 html, which is discussed below.
+
+Another option is load strings as JSON from the server for a given locale. A demonstration of this is available
+in [http://localhost:3000/localized](http://localhost:3000/localized).  Here a server-side template is rendered
+with info about the current locale stored in the HTML element:
+
+```html
+<!doctype html>
+<html lang="de" dir="ltr">
+```
+
+The `lang` attribute can then be used by script in the page to determine the locale that is being used, and
+load the strings for that locale as JSON.  To facilitate this, the `/strings/:lang?` route provides the
+full JSON string catalog for a given locale.
 
 ##Transifex
 
