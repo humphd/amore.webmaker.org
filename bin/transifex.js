@@ -1,32 +1,32 @@
 const BASE_URL = 'https://www.transifex.com/api/2/project/';
 const DEFAULT_DIR = 'locale';
 const DEFAULT_PROJECT = 'amore';
-
+            
 var request = require('request'),
-    fs = require('fs'),
-    path = require('path'),
-    mkpath = require('mkpath');
+  fs = require('fs'),
+  path = require('path'),
+  mkpath = require('mkpath');
 
 function importFromTransifex(options) {
- var authHeader = 'Basic ' + new Buffer(options.user).toString('base64');
- 
- function writeFile( relPath, exports, callback ) {
-  callback = callback || function(){};
-  var absPath = path.join(options.dir, relPath);
-  mkpath(path.dirname(absPath), function( err ) {
-    if ( err ) {
-      return callback( err );
-    }
-    fs.writeFile(absPath, exports, { encoding: "utf-8" }, function( err ) {
+  var authHeader = 'Basic ' + new Buffer(options.user).toString('base64');
+
+  function writeFile( relPath, exports, callback ) {
+    callback = callback || function(){};
+    var absPath = path.join(options.dir, relPath);
+    mkpath(path.dirname(absPath), function( err ) {
       if ( err ) {
         return callback( err );
       }
-      callback();
+      fs.writeFile(absPath, exports, { encoding: "utf-8" }, function( err ) {
+        if ( err ) {
+          return callback( err );
+        }
+        callback();
+      });
     });
-  });
   }
 
- function projectRequest (url, callback) {
+  function projectRequest (url, callback) {
     request.get({
       url: url,
       headers: {'Authorization': authHeader}
@@ -42,7 +42,7 @@ function importFromTransifex(options) {
   };
 
   var detailsPath = '/?details',
-      url = BASE_URL + options.project + detailsPath;
+    url = BASE_URL + options.project + detailsPath;
   projectRequest(url, function(error, projectDetails) {
     if (error) {
       return console.log("Can not return the project details");
