@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="{{ lang }}" dir="{{ lang_dir }}">
+<head>
+  <meta charset="utf-8">
+  <title>Test of string loading based on HTML lang attribute</title>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+  <script>
+  $(function(){
+
+    // Get the current lang from the document's HTML element, which the
+    // server set when the page was first rendered.  This saves us having
+    // to pass extra locale info around on the URL.
+    lang = $('html').attr('lang') || 'en_US';
+
+    $.ajax({
+      type: 'GET',
+      url: '/strings/' + lang,
+      async: false,
+      jsonpCallback: 'jsonCallback',
+      contentType: 'application/json',
+      dataType: 'jsonp',
+      success: function(json) {
+        $('#title').html( 'All strings for the ' + lang + ' locale:' );
+        $('#container').html( JSON.stringify( json, null, 2 ) );
+      },
+      error: function(e) {
+        console.log("Error" + e);
+      }
+    });
+  });
+  </script>
+</head>
+<body>
+  <h3 id="title"></h3>
+  <pre id="container"></pre>
+</body>
+</html>
