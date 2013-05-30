@@ -18,6 +18,12 @@
   </style>
   </head>
   <body>
+    <h3>Text for locale {{ lang }}</h3>
     <p id="main">{{ gettext( "iloveyou" ) }}</p>
+
+    <h3>Other Locales:</h3>
+    {% for locale in locales %}
+      <a href="/{{ locale }}/">{{ locale }}</a>&nbsp;
+    {% endfor %}
   </body>
 </html>

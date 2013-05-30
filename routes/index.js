@@ -1,7 +1,7 @@
 module.exports = function( i18n ) {
   return {
     index: function( req, res ) {
-      res.render( "index.html" );
+      res.render( "index.html", { locales: i18n.getLocales() });
     },
     data: function( req, res ) {
       res.render( "data.html" );
