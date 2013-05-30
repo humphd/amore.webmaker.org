@@ -28,7 +28,8 @@ app.use( "/static", express.static( path.join( __dirname + "/static" )));
 
 app.get( "/", routes.index );
 app.get( "/data", routes.data );
-app.get( "/strings", routes.strings );
+app.get( "/strings/:lang?", routes.strings );
+app.get( "/localized", routes.localized );
 
 // Start up the server
 app.listen( 3000, function() {
