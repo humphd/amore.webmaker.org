@@ -1,29 +1,48 @@
 <!DOCTYPE html>
 <html lang="{{ lang }}" dir="{{ lang_dir }}">
   <head>
-    <title>I love you</title>
+    <title lang="en" dir="ltr">I love you</title>
     <meta http-equiv='Content-Type' content='text/html; charset=utf-8'>
     <style>
-    html, body { height: 100%; font-family: Helvetica, arial, monospace; }
-    #main { width: 500px;
-            height: 500px;
-            text-align: center;
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            margin-left: -250px;
-            margin-top: -250px;
-            font-size: 100px;
-          }
+    html, body {
+      height: 100%;
+      font-family: Helvetica, arial, monospace;
+    }
+
+    #main {
+      width: 500px;
+      height: 500px;
+      text-align: center;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      margin-left: -250px;
+      margin-top: -250px;
+      font-size: 100px;
+    }
   </style>
   </head>
   <body>
-    <h3>Text for locale {{ lang }}</h3>
+
+    <div lang="en" dir="ltr">
+      <h2>Amore: Webmaker Localization Experiments</h2>
+      <h3>Text for locale {{ lang }} (see also <a href="localized">Localized JSON</a>)</h3>
+       <p>This is a sample Webmaker web app that demonstrates the technology necessary to localize node.js,
+          HTML, and JavaScript. You can read more details in <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=877232">
+          bug 877232</a>, and see all the code in
+          <a href="https://github.com/humphd/amore.webmaker.org">Amore's source code on github</a>. The translation strings
+          are available in the <a href="https://www.transifex.com/projects/p/amore/">Amore Transifex project</a>.
+       </p>
+    </div>
+
     <p id="main">{{ gettext( "iloveyou" ) }}</p>
 
-    <h3>Other Locales:</h3>
-    {% for locale in locales %}
-      <a href="/{{ locale }}/">{{ locale }}</a>&nbsp;
-    {% endfor %}
+    <div lang="en" dir="ltr">
+      <h3>Other Locales:</h3>
+      {% for locale in locales %}
+        <a href="/{{ locale }}/">{{ locale }}</a>&nbsp;
+      {% endfor %}
+    </div>
+
   </body>
 </html>
