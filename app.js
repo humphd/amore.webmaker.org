@@ -16,13 +16,13 @@ app.use( express.logger());
 app.use( i18n.abide({
   supported_languages: [
     'ach', 'ady', 'af', 'am', 'an', 'ar', 'as', 'ast', 'az', 'be', 'be_BY', 'bg', 'bn', 'bo',
-    'br', 'bs', 'ca', 'cs', 'cv', 'cy', 'da', 'da_DK', 'el', 'eo', 'et', 'eu', 'fa', 'fi',
-    'fil', 'fr', 'ga', 'gd', 'he', 'hi', 'hr', 'ht', 'hu', 'hy', 'ia', 'id', 'is', 'it',
-    'ja', 'ja_JP', 'jv', 'ka', 'kk', 'km', 'kn', 'ko', 'ku', 'la', 'lb', 'lt', 'lv', 'mi',
-    'mk', 'ml', 'mn', 'mr', 'ms', 'mt', 'my', 'ne', 'nl', 'no', 'nr', 'or', 'os', 'pa', 'pl',
-    'pt', 'ro', 'ru', 'rw', 'sc', 'si', 'sk', 'sl', 'sm', 'sn', 'so', 'sq', 'sq_AL', 'sr',
-    'sv', 'sw', 'ta', 'te', 'th_TH', 'ti', 'tl', 'tn', 'to', 'tr', 'tt', 'uk', 'ur', 'uz',
-    'vec', 'vi', 'wa', 'wo', 'xh', 'yi', 'yo', 'zh', 'zu', 'db_LB', 'en_US'
+    'br', 'bs', 'ca', 'cs', 'cv', 'cy', 'da', 'da_DK', 'db_LB', 'de', 'el', 'en_US', 'eo', 'es',
+    'et', 'eu', 'fa', 'fi', 'fil', 'fr', 'ga', 'gd', 'he', 'hi', 'hr', 'ht', 'hu', 'hy', 'ia', 
+    'id', 'is', 'it', 'ja', 'ja_JP', 'jv', 'ka', 'kk', 'km', 'kn', 'ko', 'ku', 'la', 'lb', 'lt', 
+    'lv', 'mi', 'mk', 'ml', 'mn', 'mr', 'ms', 'mt', 'my', 'ne', 'nl', 'no', 'nr', 'or', 'os', 
+    'pa', 'pl', 'pt', 'ro', 'ru', 'rw', 'sc', 'si', 'sk', 'sl', 'sm', 'sn', 'so', 'sq', 'sq_AL',
+    'sr', 'sv', 'sw', 'ta', 'te', 'th_TH', 'ti', 'tl', 'tn', 'to', 'tr', 'tt', 'uk', 'ur', 'uz',
+    'vec', 'vi', 'wa', 'wo', 'xh', 'yi', 'yo', 'zh', 'zu'
   ],
   default_lang: "en_US",
   translation_directory: "locale",
