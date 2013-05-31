@@ -41,6 +41,6 @@ app.get( "/strings/:lang?", routes.strings );
 app.get( "/localized", routes.localized );
 
 // Start up the server
-app.listen( 3000, function() {
+app.listen( process.env.PORT || 3000, function() {
   console.log( "Server listening (http://localhost:3000)" );
 });
