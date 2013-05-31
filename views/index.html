@@ -3,71 +3,119 @@
   <head>
     <title lang="en" dir="ltr">I love you</title>
     <meta http-equiv='Content-Type' content='text/html; charset=utf-8'>
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,300&subset=latin,cyrillic-ext,vietnamese,greek' rel='stylesheet' type='text/css'>
     <style>
-    html, body {
-      height: 100%;
-      font-family: Helvetica, arial, monospace;
-      margin: 0;
-      padding: 0;
-      font-size: 100%;
-    }
+      html, body {
+        height: 100%;
+        font-family: "roboto slab", sans-serif;
+        margin: 0;
+        padding: 0;
+        font-size: 100%;
+        color: #fbe7e6;
+        background: #BA2E2F;
+        -webkit-font-smoothing: antialiased;
+      }
 
-    a {
-      color: #CC4741;
-    }
-    a:hover {
-      color: #F05B57;
-    }
+      h1, h2, h3 {
+        font-weight: normal;
+      }
+
+      a {
+        color: #FFF;
+        border: 1px dashed #CC4741;
+        background: #CC4741;
+        padding: 0 0.5em;
+        font-weight: 400;
+        text-decoration: none;
+      }
+      a:hover {
+        background: #CC4741;
+        border-color: #FFF;
+      }
 
     .wrapper {
       width: 1020px;
-      margin: 1em auto;
-      padding-bottom: 2em;
+      margin: 0 auto;
+      padding: 1em 0 5em 0;
     }
     .locale {
+      color: #FFF;
       display: inline-block;
-      margin-bottom: 4px;
-      background: #FFF;
-      border: 1px solid #CC4741;
-      color: #CC4741;
-      padding: 0.5em 1em;
+      background: #CC4741;
+      width: 71px;
+      padding: 0;
+      line-height: 30px;
       text-decoration: none;
-      width: 3em;
       text-align: center;
+    }
+    .local:nth-child(3n) {
+      margin-right: 0;
     }
     .locale:hover {
       color: #FFF;
       background: #F05B57;
     }
+    .sidebar .locale {
+      float: left;
+      margin-right: 5px;
+      margin-bottom: 5px;
+    }
+    #main .locale {
+      background: #F05B57;
+    }
     #main {
-      padding: 2em 0;
+      padding: 1em 0;
       background: #CC4741;
-      font-size: 5em;
       text-align: center;
       color: #FFF;
+    }
+    #main h1 {
+      font-size: 5em;
+      margin-bottom: 0;
+    }
+
+    #main a {
+      text-decoration: underline;
+    }
+    .sidebar, .info {
+      float: left;
+    }
+    .sidebar {
+      width: 240px;
+      margin-right: 20px;
+    }
+    .info {
+      font-weight: 300;
+      width: 760px;
+      font-size: 1.2em;
+      line-height: 1.8;
+    }
+    .info h1 {
+      line-height: 1.2;
     }
   </style>
   </head>
   <body>
-      <div id="main">{{ gettext( "iloveyou" ) }}</div>
+      <div id="main">
+        <h1>{{ gettext( "iloveyou" ) }}</h1>
+        <h3>Text for locale <span class="locale">{{ lang }}</span> (see also <a href="localized">Localized JSON</a>)</h3>
+      </div>
       <div class="wrapper">
-      <div lang="en" dir="ltr">
-        <h2>Amore: Webmaker Localization Experiments</h2>
-        <h3>Text for locale {{ lang }} (see also <a href="localized">Localized JSON</a>)</h3>
-         <p>This is a sample Webmaker web app that demonstrates the technology necessary to localize node.js,
-            HTML, and JavaScript. You can read more details in <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=877232">
-            bug 877232</a>, and see all the code in
-            <a href="https://github.com/humphd/amore.webmaker.org">Amore's source code on github</a>. The translation strings
-            are available in the <a href="https://www.transifex.com/projects/p/amore/">Amore Transifex project</a>.
-         </p>
-      </div>
-
-      <div lang="en" dir="ltr">
-        <h3>Other Locales:</h3>
-        {% for locale in locales %}
-          <a class="locale" href="/{{ locale }}/">{{ locale }}</a>&nbsp;
-        {% endfor %}
-      </div>
+        <div class="sidebar" lang="en" dir="ltr">
+          <h2>Other Locales</h2>
+          {% for locale in locales %}
+            <a class="locale" href="/{{ locale }}/">{{ locale }}</a>
+          {% endfor %}
+        </div>
+        <div class="info" lang="en" dir="ltr">
+          <h1>Amore: Webmaker Localization Experiments</h1>
+           <p>This is a sample Webmaker web app that demonstrates the technology necessary to localize node.js,
+              HTML, and JavaScript. You can read more details in <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=877232">
+              bug 877232</a>, and see all the code in
+              <a href="https://github.com/humphd/amore.webmaker.org">Amore's source code on github</a>. The translation strings
+              are available in the <a href="https://www.transifex.com/projects/p/amore/">Amore Transifex project</a>.
+           </p>
+        </div>
     </div>
 
   </body>
