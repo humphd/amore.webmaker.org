@@ -42,17 +42,19 @@ function importFromTransifex(options) {
     if (error) {
       return console.log("Can not return the project details");
     }
-    var resources = JSON.parse(projectDetails);
-    resources.teams.forEach(function(entry) {
-      resourcesPath = resources.resources[0].slug + '/translation/' + entry;
-      var url = BASE_URL + options.project + '/resource/' + resourcesPath + '/?file';
-      projectRequest(url, function(error, fileContent){
-        if (error) {
-          return console.log("Can not return the fileContent");
-        }
-        var filename = entry + '.plist';
-        writeFile(filename, fileContent, function( err ) {
-          console.log( ( err ? "Error writing " : "Wrote " ) + filename );
+    projectDetails = JSON.parse(projectDetails);
+    projectDetails.resources.forEach(function(resourcesDetails) { 
+      projectDetails.teams.forEach(function(entry) {
+        resourcesPath = resourcesDetails.slug + '/translation/' + entry;
+        var url = BASE_URL + options.project + '/resource/' + resourcesPath + '/?file';
+        projectRequest(url, function(error, fileContent){
+         if (error) {
+            return console.log("Can not return the fileContent");
+          }
+          var filename = path.join(entry + '/' + resourcesDetails.slug) + '.plist';
+          writeFile(filename, fileContent, function( err ) {
+            console.log( ( err ? "Error writing " : "Wrote " ) + filename );
+          });
         });
       });
     });
