@@ -1,6 +1,6 @@
 {
   "name": "amore.webmaker.org",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "David Humphrey <david.humphrey@senecacollege.ca>",
   "description": "Node Web App for localization of Webmaker",
   "repository": {
@@ -15,7 +15,8 @@
     "mkpath": "0.1.0",
     "nunjucks": "0.1.8a",
     "plist": "0.4.3",
-    "request": "2.21.0"
+    "request": "2.21.0",
+    "i18n-abide": "git://github.com/humphd/i18n-abide.git#2e8bfb9ab118559f98cb27f7807f88459bc5bd63"
   },
   "devDependencies": {
     "mocha": "~1.8.2",

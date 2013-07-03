@@ -2,7 +2,7 @@
 var express = require( "express" ),
     nunjucks = require( "nunjucks" ),
     path = require( "path" ),
-    i18n = require( "./lib/i18n.js" ),
+    i18n = require( "i18n-abide" ),
     app = express(),
     nunjucksEnv = new nunjucks.Environment( new nunjucks.FileSystemLoader( path.join( __dirname, '/views' ))),
     routes = require( "./routes" )( i18n );
@@ -25,6 +25,7 @@ app.use( i18n.abide({
     'vec', 'vi', 'wa', 'wo', 'xh', 'yi', 'yo', 'zh', 'zu'
   ],
   default_lang: "en_US",
+  translation_type: "plist",
   translation_directory: "locale",
   localeOnUrl: true
 }));
